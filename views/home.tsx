@@ -1,13 +1,13 @@
 import React from "react";
-import { Button, Alert, Stack, Typography, Table, TableContainer, 
+import { Alert, Stack, Typography, Table, TableContainer, 
         TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
 
 function createData(
-  name,
-  calories,
-  fat,
-  carbs,
-  protein,
+  name: string,
+  calories: number,
+  fat: number,
+  carbs: number,
+  protein: number,
 ) {
   return { name, calories, fat, carbs, protein };
 }

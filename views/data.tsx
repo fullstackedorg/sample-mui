@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from '@mui/material';
 import { BarChart } from '@mui/x-charts/BarChart';
 import { LineChart } from '@mui/x-charts/LineChart';
 
@@ -7,6 +6,7 @@ import { LineChart } from '@mui/x-charts/LineChart';
 export default function() {
     return <>
          <BarChart
+             
           series={[
             { data: [35, 44, 24, 34] },
             { data: [51, 6, 49, 30] },
