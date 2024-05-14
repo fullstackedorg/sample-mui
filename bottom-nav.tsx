@@ -9,7 +9,9 @@ const routes = [
     "/",
     "/data",
     "/form"
-]
+];
+
+declare var rpc: any;
 
 export default function() {
     const [value, setValue] = useState(0);
@@ -17,7 +19,7 @@ export default function() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        rpc().platform().then(platform => setIOS(platform === "ios"));
+        rpc().platform().then((platform: string) => setIOS(platform === "ios"));
     }, [])
 
   return (
@@ -46,7 +48,7 @@ export default function() {
       <BottomNavigation
         showLabels
         value={value}
-        onChange={(event, newValue) => {
+        onChange={(_, newValue) => {
             setValue(newValue);
             navigate(routes[newValue]);
         }}

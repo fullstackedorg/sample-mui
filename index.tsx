@@ -5,9 +5,10 @@ import App, { themeFile } from "./app";
 const div = document.createElement("div");
 document.body.append(div);
 
-let themeMode = await rpc().fs.exists(themeFile)
+declare var rpc: any;
+
+const themeMode = await rpc().fs.exists(themeFile)
     ? await rpc().fs.readFile(themeFile, { encoding: "utf8" })
     : null;
 
 createRoot(div).render(<App themeMode={themeMode} />);
-

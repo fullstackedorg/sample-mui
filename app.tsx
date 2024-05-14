@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import BottomNavigation from "./bottom-nav";
-import { useTheme, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import CssBaseline from '@mui/material/CssBaseline';
-import { purple } from '@mui/material/colors';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Form from "./views/form";
 import Data from "./views/data";
 import Home from "./views/home";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import AppBar from "./app-bar";
+
+declare var rpc: any;
 
 const lightTheme = createTheme({});
 
@@ -20,7 +21,7 @@ const darkTheme = createTheme({
 
 export const themeFile = "data/theme.txt";
 
-export default function(props){
+export default function(props: { themeMode: "dark" | "light" }){
     const [darkMode, setDarkMode] = useState(props.themeMode === "dark");
 
     const toggleTheme = async () => {

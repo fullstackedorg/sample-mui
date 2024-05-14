@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppBar, Box, Toolbar, Typography, Button, IconButton,
+import { AppBar, Box, Toolbar, IconButton,
         InputBase, Drawer, List, ListItem, Divider, 
         ListItemButton, ListItemIcon, ListItemText,
         useTheme } from '@mui/material';
@@ -50,7 +50,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export default function(props) {
+export default function(props: {toggleTheme: () => void}) {
     const theme = useTheme();
     const [drawerOpen, setDrawerOpen] = useState(false);
     
