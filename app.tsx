@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import BottomNavigation from "./bottom-nav";
 import { Box } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router";
 import Form from "./views/form";
 import Data from "./views/data";
 import Home from "./views/home";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import AppBar from "./app-bar";
+import fs from "fs";
 
 const lightTheme = createTheme({});
 
@@ -25,8 +26,8 @@ export default function (props: { themeMode: "dark" | "light" }) {
     const toggleTheme = async () => {
         const themeMode = !darkMode;
         setDarkMode(themeMode);
-        if (!(await rpc().fs.exists("data"))) await rpc().fs.mkdir("data");
-        await rpc().fs.writeFile(themeFile, themeMode ? "dark" : "light");
+        if (!(await fs.exists("data"))) await fs.mkdir("data");
+        await fs.writeFile(themeFile, themeMode ? "dark" : "light");
     };
 
     return (
